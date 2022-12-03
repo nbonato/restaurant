@@ -2,6 +2,9 @@ import createHome from "./home";
 import createMenu from "./menu";
 import createContact from "./contact";
 import './style.css';
+import beefPicture from './beef.jpg';
+import stewPicture from "./stew.jpg";
+import chickenPicture from "./chicken.jpg";
 
 let navDiv = document.getElementById("nav-div");
 let content = document.getElementById("content");
