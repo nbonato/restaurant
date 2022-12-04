@@ -2,11 +2,9 @@ import createHome from "./home";
 import createMenu from "./menu";
 import createContact from "./contact";
 import './style.css';
-import beefPicture from './beef.jpg';
-import stewPicture from "./stew.jpg";
-import chickenPicture from "./chicken.jpg";
 
-let navDiv = document.getElementById("nav-div");
+
+let navDiv = document.querySelector("nav");
 let content = document.getElementById("content");
 let nav = document.createElement("div");
 let options = document.createElement("ul");
@@ -14,6 +12,12 @@ options.className = "tabs-menu";
 let home = document.createElement("li");
 let menu = document.createElement("li");
 let contact = document.createElement("li");
+
+let headerDiv = document.querySelector("header");
+let header = document.createElement("h1");
+header.textContent = "The Bear";
+headerDiv.appendChild(header);
+
 
 
 home.textContent = "home";
@@ -30,7 +34,11 @@ navDiv.appendChild(nav);
 let tabs = document.querySelectorAll("li");
 
 for (let i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove('current-page');
     tabs[i].addEventListener("click", (e) => {
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove('current-page');
+        };
         content.innerHTML = "";
         switch (e.target.textContent) {
             case "home":
@@ -43,6 +51,8 @@ for (let i = 0; i < tabs.length; i++) {
                 content.appendChild(createContact());
                 break
         };
+        e.target.className = "current-page"
 
     });
-}
+};
+content.appendChild(createHome());
